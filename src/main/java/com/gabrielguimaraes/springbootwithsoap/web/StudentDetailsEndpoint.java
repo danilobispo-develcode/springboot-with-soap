@@ -9,6 +9,8 @@ import com.in28minutes.students.DeleteStudentDetailsResponse;
 import com.in28minutes.students.GetStudentDetailsRequest;
 import com.in28minutes.students.GetStudentDetailsResponse;
 import com.in28minutes.students.StudentDetails;
+import com.in28minutes.students.UpdateStudentDetailsRequest;
+import com.in28minutes.students.UpdateStudentDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -66,6 +68,17 @@ public class StudentDetailsEndpoint {
         studentService.deleteStudent(request.getId());
 
         response.setConfirmacao(Boolean.TRUE);
+
+        return response;
+    }
+
+    @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "UpdateStudentDetailsRequest")
+    @ResponsePayload
+    public UpdateStudentDetailsResponse deleteStudentDetailsRequest(@RequestPayload UpdateStudentDetailsRequest request) {
+
+        UpdateStudentDetailsResponse response = new UpdateStudentDetailsResponse();
+
+        response.setStudentDetails(studentService.updateStudent(request.getStudentDetails()));
 
         return response;
     }

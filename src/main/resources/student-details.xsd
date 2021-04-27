@@ -56,6 +56,24 @@
         </xs:complexType>
     </xs:element>
 
+<!--  UpdateStudentDetailsRequest  -->
+    <xs:element name="UpdateStudentDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "StudentDetails" type="tns:StudentDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateStudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "StudentDetails" type="tns:StudentDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+<!--  DATASHAPE  -->
     <xs:complexType name="StudentDetails">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
