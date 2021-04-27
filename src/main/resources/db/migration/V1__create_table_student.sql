@@ -1,5 +1,5 @@
 CREATE TABLE student(
      id BIGINT PRIMARY KEY AUTO_INCREMENT,
      name VARCHAR(70) NOT NULL,
-     passportNumber VARCHAR(70)
+     passport_number VARCHAR(70)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
