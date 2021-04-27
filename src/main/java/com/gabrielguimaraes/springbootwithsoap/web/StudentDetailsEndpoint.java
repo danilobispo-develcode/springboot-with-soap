@@ -4,6 +4,8 @@ import com.gabrielguimaraes.springbootwithsoap.datashape.Student;
 import com.gabrielguimaraes.springbootwithsoap.service.StudentService;
 import com.in28minutes.students.AddStudentDetailsRequest;
 import com.in28minutes.students.AddStudentDetailsResponse;
+import com.in28minutes.students.DeleteStudentDetailsRequest;
+import com.in28minutes.students.DeleteStudentDetailsResponse;
 import com.in28minutes.students.GetStudentDetailsRequest;
 import com.in28minutes.students.GetStudentDetailsResponse;
 import com.in28minutes.students.StudentDetails;
@@ -25,7 +27,7 @@ public class StudentDetailsEndpoint {
 
         GetStudentDetailsResponse response = new GetStudentDetailsResponse();
 
-        Student st = studentService.findById((long) request.getId());
+        Student st = studentService.findById(request.getId());
 
         StudentDetails studentDetails = new StudentDetails();
         studentDetails.setId(st.getId());
@@ -34,14 +36,12 @@ public class StudentDetailsEndpoint {
 
         response.setStudentDetails(studentDetails);
 
-
-
         return response;
     }
 
     @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "AddStudentDetailsRequest")
     @ResponsePayload
-    public AddStudentDetailsResponse addStudentDetailsResponse(@RequestPayload AddStudentDetailsRequest request) {
+    public AddStudentDetailsResponse addStudentDetailsRequest(@RequestPayload AddStudentDetailsRequest request) {
 
         AddStudentDetailsResponse response = new AddStudentDetailsResponse();
 
@@ -53,6 +53,19 @@ public class StudentDetailsEndpoint {
         studentDetails.setPassportNumber(st.getPassportNumber());
 
         response.setStudentDetails(studentDetails);
+
+        return response;
+    }
+
+    @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "DeleteStudentDetailsRequest")
+    @ResponsePayload
+    public DeleteStudentDetailsResponse deleteStudentDetailsRequest(@RequestPayload DeleteStudentDetailsRequest request) {
+
+        DeleteStudentDetailsResponse response = new DeleteStudentDetailsResponse();
+
+        studentService.deleteStudent(request.getId());
+
+        response.setConfirmacao(Boolean.TRUE);
 
         return response;
     }

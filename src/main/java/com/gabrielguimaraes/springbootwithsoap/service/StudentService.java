@@ -7,4 +7,6 @@ public interface StudentService {
     Student findById(Long id);
 
     Student addStudent(Student student);
+
+    void deleteStudent(Long id);
 }
