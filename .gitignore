@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 .idea
+src/main/java/com/in28minutes/
 
 ### STS ###
 .apt_generated
