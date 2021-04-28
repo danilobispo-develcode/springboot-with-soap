@@ -33,8 +33,8 @@ public class StudentDetailsEndpoint {
 
         StudentDetails studentDetails = new StudentDetails();
         studentDetails.setId(st.getId());
-        studentDetails.setName("Adam");
-        studentDetails.setPassportNumber("E1234567");
+        studentDetails.setName(st.getName());
+        studentDetails.setPassportNumber(st.getPassportNumber());
 
         response.setStudentDetails(studentDetails);
 

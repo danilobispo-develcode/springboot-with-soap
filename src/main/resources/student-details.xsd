@@ -73,6 +73,23 @@
         </xs:complexType>
     </xs:element>
 
+<!--  GetAddressByCep  -->
+    <xs:element name="GetAddressByCepRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "cep" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAddressByCepResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "address" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 <!--  DATASHAPE  -->
     <xs:complexType name="StudentDetails">
         <xs:sequence>
