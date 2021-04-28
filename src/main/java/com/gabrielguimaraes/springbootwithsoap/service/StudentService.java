@@ -2,12 +2,15 @@ package com.gabrielguimaraes.springbootwithsoap.service;
 
 import com.gabrielguimaraes.springbootwithsoap.datashape.Student;
 import com.in28minutes.students.StudentDetails;
+import com.secondaryServer.GetStudentDetailsRequest;
 
 public interface StudentService {
 
-    Student findById(Long id);
+    StudentDetails findById(Long id);
 
-    Student addStudent(Student student);
+    StudentDetails findByIdOnSecondaryServer(Long id);
+
+    StudentDetails addStudent(Student student);
 
     void deleteStudent(Long id);
 

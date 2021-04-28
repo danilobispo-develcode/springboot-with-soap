@@ -8,7 +8,8 @@ import com.in28minutes.students.DeleteStudentDetailsRequest;
 import com.in28minutes.students.DeleteStudentDetailsResponse;
 import com.in28minutes.students.GetStudentDetailsRequest;
 import com.in28minutes.students.GetStudentDetailsResponse;
-import com.in28minutes.students.StudentDetails;
+import com.in28minutes.students.GetStudentDetailsSecondaryServerRequest;
+import com.in28minutes.students.GetStudentDetailsSecondaryServerResponse;
 import com.in28minutes.students.UpdateStudentDetailsRequest;
 import com.in28minutes.students.UpdateStudentDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,60 +27,41 @@ public class StudentDetailsEndpoint {
     @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "GetStudentDetailsRequest")
     @ResponsePayload
     public GetStudentDetailsResponse getStudentDetailsRequest(@RequestPayload GetStudentDetailsRequest request) {
-
         GetStudentDetailsResponse response = new GetStudentDetailsResponse();
-
-        Student st = studentService.findById(request.getId());
-
-        StudentDetails studentDetails = new StudentDetails();
-        studentDetails.setId(st.getId());
-        studentDetails.setName(st.getName());
-        studentDetails.setPassportNumber(st.getPassportNumber());
-
-        response.setStudentDetails(studentDetails);
-
+        response.setStudentDetails(studentService.findById(request.getId()));
         return response;
     }
 
     @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "AddStudentDetailsRequest")
     @ResponsePayload
     public AddStudentDetailsResponse addStudentDetailsRequest(@RequestPayload AddStudentDetailsRequest request) {
-
         AddStudentDetailsResponse response = new AddStudentDetailsResponse();
-
-        Student st = studentService.addStudent(new Student(request.getName(), request.getPassportNumber()));
-
-        StudentDetails studentDetails = new StudentDetails();
-        studentDetails.setId(st.getId());
-        studentDetails.setName(st.getName());
-        studentDetails.setPassportNumber(st.getPassportNumber());
-
-        response.setStudentDetails(studentDetails);
-
+        response.setStudentDetails(studentService.addStudent(new Student(request.getName(), request.getPassportNumber())));
         return response;
     }
 
     @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "DeleteStudentDetailsRequest")
     @ResponsePayload
     public DeleteStudentDetailsResponse deleteStudentDetailsRequest(@RequestPayload DeleteStudentDetailsRequest request) {
-
         DeleteStudentDetailsResponse response = new DeleteStudentDetailsResponse();
-
         studentService.deleteStudent(request.getId());
-
         response.setConfirmacao(Boolean.TRUE);
-
         return response;
     }
 
     @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "UpdateStudentDetailsRequest")
     @ResponsePayload
     public UpdateStudentDetailsResponse deleteStudentDetailsRequest(@RequestPayload UpdateStudentDetailsRequest request) {
-
         UpdateStudentDetailsResponse response = new UpdateStudentDetailsResponse();
-
         response.setStudentDetails(studentService.updateStudent(request.getStudentDetails()));
+        return response;
+    }
 
+    @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "GetStudentDetailsSecondaryServerRequest")
+    @ResponsePayload
+    public GetStudentDetailsSecondaryServerResponse getStudentDetailsSecondaryServerRequest(@RequestPayload GetStudentDetailsSecondaryServerRequest request) {
+        GetStudentDetailsSecondaryServerResponse response = new GetStudentDetailsSecondaryServerResponse();
+        response.setStudentDetails(studentService.findByIdOnSecondaryServer(request.getId()));
         return response;
     }
 }

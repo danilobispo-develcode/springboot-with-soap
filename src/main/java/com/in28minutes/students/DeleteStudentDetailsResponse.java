@@ -10,7 +10,6 @@ package com.in28minutes.students;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="StudentDetails" type="{http://in28minutes.com/students}StudentDetails"/>
+ *         &lt;element name="confirmacao" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "studentDetails"
+    "confirmacao"
 })
-@XmlRootElement(name = "GetStudentDetailsResponse")
-public class GetStudentDetailsResponse {
+@XmlRootElement(name = "DeleteStudentDetailsResponse")
+public class DeleteStudentDetailsResponse {
 
-    @XmlElement(name = "StudentDetails", required = true)
-    protected StudentDetails studentDetails;
+    protected boolean confirmacao;
 
     /**
-     * Gets the value of the studentDetails property.
+     * Gets the value of the confirmacao property.
      * 
-     * @return
-     *     possible object is
-     *     {@link StudentDetails }
-     *     
      */
-    public StudentDetails getStudentDetails() {
-        return studentDetails;
+    public boolean isConfirmacao() {
+        return confirmacao;
     }
 
     /**
-     * Sets the value of the studentDetails property.
+     * Sets the value of the confirmacao property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link StudentDetails }
-     *     
      */
-    public void setStudentDetails(StudentDetails value) {
-        this.studentDetails = value;
+    public void setConfirmacao(boolean value) {
+        this.confirmacao = value;
     }
 
 }

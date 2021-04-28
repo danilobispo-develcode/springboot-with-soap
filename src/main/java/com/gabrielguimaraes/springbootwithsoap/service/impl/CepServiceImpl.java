@@ -1,6 +1,6 @@
 package com.gabrielguimaraes.springbootwithsoap.service.impl;
 
-import com.gabrielguimaraes.springbootwithsoap.service.outofbounds.CepFeingClient;
+import com.gabrielguimaraes.springbootwithsoap.service.outofbounds.CepFeignClient;
 import com.gabrielguimaraes.springbootwithsoap.service.CepService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ import javax.transaction.Transactional;
 public class CepServiceImpl implements CepService {
 
     @Autowired
-    private CepFeingClient cepFeingClient;
+    private CepFeignClient cepFeignClient;
 
     @Override
     public String findAddressByCep(String cep) {
-        return cepFeingClient.buscaEnderecoPorCep(cep).toString();
+        return cepFeignClient.buscaEnderecoPorCep(cep).toString();
     }
 }
