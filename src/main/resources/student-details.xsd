@@ -90,6 +90,23 @@
         </xs:complexType>
     </xs:element>
 
+<!--  GetStudentDetailsSecondaryServerRequest  -->
+    <xs:element name="GetStudentDetailsSecondaryServerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetStudentDetailsSecondaryServerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "StudentDetails" type="tns:StudentDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 <!--  DATASHAPE  -->
     <xs:complexType name="StudentDetails">
         <xs:sequence>

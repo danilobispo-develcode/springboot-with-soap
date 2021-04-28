@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="StudentDetails" type="{http://in28minutes.com/students}StudentDetails"/>
+ *         &lt;element name="cep" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "studentDetails"
+    "cep"
 })
-@XmlRootElement(name = "GetStudentDetailsResponse")
-public class GetStudentDetailsResponse {
+@XmlRootElement(name = "GetAddressByCepRequest")
+public class GetAddressByCepRequest {
 
-    @XmlElement(name = "StudentDetails", required = true)
-    protected StudentDetails studentDetails;
+    @XmlElement(required = true)
+    protected String cep;
 
     /**
-     * Gets the value of the studentDetails property.
+     * Gets the value of the cep property.
      * 
      * @return
      *     possible object is
-     *     {@link StudentDetails }
+     *     {@link String }
      *     
      */
-    public StudentDetails getStudentDetails() {
-        return studentDetails;
+    public String getCep() {
+        return cep;
     }
 
     /**
-     * Sets the value of the studentDetails property.
+     * Sets the value of the cep property.
      * 
      * @param value
      *     allowed object is
-     *     {@link StudentDetails }
+     *     {@link String }
      *     
      */
-    public void setStudentDetails(StudentDetails value) {
-        this.studentDetails = value;
+    public void setCep(String value) {
+        this.cep = value;
     }
 
 }

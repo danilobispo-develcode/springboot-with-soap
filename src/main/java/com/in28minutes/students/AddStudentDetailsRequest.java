@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="StudentDetails" type="{http://in28minutes.com/students}StudentDetails"/>
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="passportNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +37,63 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "studentDetails"
+    "name",
+    "passportNumber"
 })
-@XmlRootElement(name = "GetStudentDetailsResponse")
-public class GetStudentDetailsResponse {
+@XmlRootElement(name = "AddStudentDetailsRequest")
+public class AddStudentDetailsRequest {
 
-    @XmlElement(name = "StudentDetails", required = true)
-    protected StudentDetails studentDetails;
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected String passportNumber;
 
     /**
-     * Gets the value of the studentDetails property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
-     *     {@link StudentDetails }
+     *     {@link String }
      *     
      */
-    public StudentDetails getStudentDetails() {
-        return studentDetails;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the studentDetails property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
-     *     {@link StudentDetails }
+     *     {@link String }
      *     
      */
-    public void setStudentDetails(StudentDetails value) {
-        this.studentDetails = value;
+    public void setName(String value) {
+        this.name = value;
+    }
+
+    /**
+     * Gets the value of the passportNumber property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    /**
+     * Sets the value of the passportNumber property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPassportNumber(String value) {
+        this.passportNumber = value;
     }
 
 }

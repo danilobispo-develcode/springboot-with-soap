@@ -38,8 +38,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "studentDetails"
 })
-@XmlRootElement(name = "GetStudentDetailsResponse")
-public class GetStudentDetailsResponse {
+@XmlRootElement(name = "UpdateStudentDetailsRequest")
+public class UpdateStudentDetailsRequest {
 
     @XmlElement(name = "StudentDetails", required = true)
     protected StudentDetails studentDetails;
